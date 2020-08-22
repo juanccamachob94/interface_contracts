@@ -17,6 +17,7 @@ public class PostgresSource implements DataSource {
     return instance;
   }
 
+  @Override
   public Object getObject(String query) throws Exception {
       Session session = NewHibernateUtil.getSessionFactory().openSession();
       Transaction transaction = session.beginTransaction();
@@ -34,6 +35,7 @@ public class PostgresSource implements DataSource {
       }
   }
 
+  @Override
   public List getCollection(String query) throws Exception {
       Session session = NewHibernateUtil.getSessionFactory().openSession();
       Transaction transaction = session.beginTransaction();

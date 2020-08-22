@@ -1,7 +1,6 @@
-package mx.com.db.upax.datasources;
+package mx.com.upax.db.datasources;
 
 import mx.com.upax.utilities.NewHibernateUtil;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
@@ -18,7 +17,7 @@ public class PostgresSource implements DataSource {
     return instance;
   }
 
-  public Object getObject(String query) throws ExceptionFatal {
+  public Object getObject(String query) throws Exception {
       Session session = NewHibernateUtil.getSessionFactory().openSession();
       Transaction transaction = session.beginTransaction();
       try {
@@ -29,13 +28,13 @@ public class PostgresSource implements DataSource {
       } catch (Exception e) {
           if (transaction != null) transaction.rollback();
           session.close();
-          throw new ExceptionFatal(
+          throw new Exception(
             "Error al consultar el objeto en el motor postgres. " + e.getMessage()
           );
       }
   }
 
-  public List getCollection(String query) throws ExceptionFatal {
+  public List getCollection(String query) throws Exception {
       Session session = NewHibernateUtil.getSessionFactory().openSession();
       Transaction transaction = session.beginTransaction();
       List lista;
@@ -47,13 +46,14 @@ public class PostgresSource implements DataSource {
       } catch (Exception e) {
           if (transaction != null) transaction.rollback();
           session.close();
-          throw new ExceptionFatal(
+          throw new Exception(
             "Error al consultar la lista de datos en el motor postgres. " + e.getMessage()
           );
       }
   }
 
-  public List getCollection(String query, int n) throws ExceptionFatal {
+  @Override
+  public List getCollection(String query, int n) throws Exception {
       Session session = NewHibernateUtil.getSessionFactory().openSession();
       Transaction transaction = session.beginTransaction();
       List lista;
@@ -65,27 +65,27 @@ public class PostgresSource implements DataSource {
       } catch (Exception e) {
           if (transaction != null) transaction.rollback();
           session.close();
-          throw new ExceptionFatal(
+          throw new Exception(
             "Error al consultar la lista de datos en el motor postgres. " + e.getMessage()
           );
       }
   }
 
-  public void insert(Object obj) throws ExceptionFatal {
+  @Override
+  public void insert(Object obj) throws Exception {
       try {
           List l = new ArrayList();
           l.add(obj);
-          insertar(l);
-      } catch (ExceptionFatal e) {
-          throw e;
-      } catch (Exception e) {
-          throw new ExceptionFatal(
+          insert(l);
+      } catch(Exception e) {
+          throw new Exception(
             "Error al insertar los datos en el motor postgres. " + e.getMessage()
           );
       }
   }
 
-  public void insert(List objs) throws ExceptionFatal {
+  @Override
+  public void insert(List objs) throws Exception {
       Session session = NewHibernateUtil.getSessionFactory().openSession();
       Transaction transaction = session.beginTransaction();
       try {
@@ -97,17 +97,19 @@ public class PostgresSource implements DataSource {
       } catch (Exception e) {
           if (transaction != null) transaction.rollback();
           session.close();
-          throw new ExceptionFatal(
+          throw new Exception(
             "Error al insertar los datos en el motor postgres. " + e.getMessage()
           );
       }
   }
 
-  public void save(Object obj) throws ExceptionFatal {
-      throw new ExceptionFatal("Error al guardar los datos en el motor postgres.");
+  @Override
+  public void save(Object obj) throws Exception {
+      throw new Exception("Error al guardar los datos en el motor postgres.");
   }
 
-  public void update(String query) throws ExceptionFatal {
+  @Override
+  public void update(String query) throws Exception {
       Session session = NewHibernateUtil.getSessionFactory().openSession();
       Transaction transaction = session.beginTransaction();
       try {
@@ -117,25 +119,27 @@ public class PostgresSource implements DataSource {
       } catch (Exception e) {
           if (transaction != null) transaction.rollback();
           session.close();
-          throw new ExceptionFatal(
+          throw new Exception(
             "Error al actualizar los datos en el motor postgres. " + e.getMessage()
           );
       }
   }
 
-  public void update(Object obj) throws ExceptionFatal {
+  @Override
+  public void update(Object obj) throws Exception {
       try {
           List l = new ArrayList();
           l.add(obj);
-          actualizar(l);
+          update(l);
       } catch (Exception e) {
-          throw new ExceptionFatal(
+          throw new Exception(
             "Error al actualizar los datos en el motor postgres. " + e.getMessage()
           );
       }
   }
 
-  public void update(List objs) throws ExceptionFatal {
+  @Override
+  public void update(List objs) throws Exception {
       Session session = NewHibernateUtil.getSessionFactory().openSession();
       Transaction transaction = session.beginTransaction();
       try {
@@ -146,13 +150,14 @@ public class PostgresSource implements DataSource {
       } catch (Exception e) {
           if (transaction != null) transaction.rollback();
           session.close();
-          throw new ExceptionFatal(
+          throw new Exception(
             "Error al actualizar los datos en el motor postgres. " + e.getMessage()
           );
       }
   }
 
-  public void delete(String query) throws ExceptionFatal {
+  @Override
+  public void delete(String query) throws Exception {
     Session session = NewHibernateUtil.getSessionFactory().openSession();
     Transaction transaction = session.beginTransaction();
     try {
@@ -160,23 +165,25 @@ public class PostgresSource implements DataSource {
         transaction.commit();
         session.close();
     } catch (Exception e) {
-        throw new ExceptionFatal("Error al eliminar los datos en el motor postgres.");
+        throw new Exception("Error al eliminar los datos en el motor postgres.");
     }
   }
 
-  public void delete(Object obj) throws ExceptionFatal {
+  @Override
+  public void delete(Object obj) throws Exception {
     try {
         List l = new ArrayList();
         l.add(obj);
-        eliminar(l);
+        delete(l);
     } catch (Exception e) {
-        throw new ExceptionFatal(
+        throw new Exception(
           "Error al eliminar los datos en el motor postgres. " + e.getMessage()
         );
     }
   }
 
-  public void delete(List objs) throws ExceptionFatal {
+  @Override
+  public void delete(List objs) throws Exception {
     Session session = NewHibernateUtil.getSessionFactory().openSession();
     Transaction transaction = session.beginTransaction();
     try {
@@ -188,7 +195,7 @@ public class PostgresSource implements DataSource {
     } catch (Exception e) {
         if (transaction != null) transaction.rollback();
         session.close();
-        throw new ExceptionFatal(
+        throw new Exception(
           "Error al eliminar los datos en el motor postgres. " + e.getMessage()
         );
     }

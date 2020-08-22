@@ -1,9 +1,9 @@
 package mx.com.upax.db.connections;
 
-import mx.com.upax.db.datasources;
+import mx.com.upax.db.datasources.PostgresSource;
 
-public class PostgresConnection extends Connection {
-  public static DataSource connect() throws ClassNotFoundException {
-    return SourcePostgres.getInstancia();
+public class PostgresConnection {
+  public static mx.com.upax.db.datasources.DataSource connect() throws ClassNotFoundException {
+    return PostgresSource.getInstance();
   }
 }

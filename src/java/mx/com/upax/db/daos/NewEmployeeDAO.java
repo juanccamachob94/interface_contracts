@@ -17,7 +17,7 @@ public class NewEmployeeDAO extends AbstractDAO {
   
   @Override
   protected void validateDAO() throws Exception {
-    validateMandatoryAttributesPresence();
+    super.validateDAO();
     validateLegalAge();
   }
 

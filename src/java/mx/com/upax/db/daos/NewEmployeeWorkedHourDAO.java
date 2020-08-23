@@ -6,7 +6,6 @@ import mx.com.upax.utilities.DateTime;
 
 public class NewEmployeeWorkedHourDAO extends AbstractDAO {
   private static final int MAX_HOURS = 20;
-
   public EmployeeWorkedHour employeeWorkedHour;
 
   public NewEmployeeWorkedHourDAO(int employeeId, int workedHours, String workedDate)
@@ -40,19 +39,20 @@ public class NewEmployeeWorkedHourDAO extends AbstractDAO {
   private void validateWorkedHours() {
     if(this.employeeWorkedHour.getWorkedHours() <= 0) this.errors.add("Horas inválidas");
     if(this.employeeWorkedHour.getWorkedHours() > MAX_HOURS)
-      this.errors.add("El máximo valor permitido es de" + Integer.toString(MAX_HOURS));
+      this.errors.add("El máximo valor permitido es de " + Integer.toString(MAX_HOURS));
   }
 
   private void validateWorkedDate() throws Exception {
     if(DateTime.today().before(this.employeeWorkedHour.getWorkedDate()))
       this.errors.add("La fecha de trabajo debe ser menor o igual a la actual");
-    if(dateRegistered()) this.errors.add("La fecha ya se encuentra registrada");
+    if(this.employeeWorkedHour.getEmployee() != null && dateRegistered())
+      this.errors.add("La fecha ya se encuentra registrada");
   }
 
   private boolean dateRegistered() throws Exception {
-    return ((Integer)PostgresConnection.connect().getObject(
-      "SELECT COUNT(*) FROM EmployeeWorkedHour ewh WHERE ewh.employee_id = " +
-        this.employeeWorkedHour.getEmployee().getId() + " AND ewh.worked_date = '" +
+    return ((Long)PostgresConnection.connect().getObject(
+      "SELECT COUNT(*) FROM EmployeeWorkedHour ewh WHERE ewh.employee.id = " +
+        this.employeeWorkedHour.getEmployee().getId() + " AND ewh.workedDate = '" +
         DateTime.yyyymmddDate(this.employeeWorkedHour.getWorkedDate()) + "'")
     ).intValue() > 0;
   }

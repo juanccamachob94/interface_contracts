@@ -21,8 +21,6 @@ public class Employees implements java.io.Serializable {
   private String name;
   private String lastName;
   private Date birthdate;
-  private Date createdAt;
-  private Date updatedAt;
 
   public Employees() {
   }
@@ -95,26 +93,6 @@ public class Employees implements java.io.Serializable {
 
   public void setBirthdate(Date birthdate) {
     this.birthdate = birthdate;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name="created_at", length=29)
-  public Date getCreatedAt() {
-    return this.createdAt;
-  }
-
-  public void setCreatedAt(Date createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name="updated_at", nullable=false, length=29)
-  public Date getUpdatedAt() {
-    return this.updatedAt;
-  }
-
-  public void setUpdatedAt(Date updatedAt) {
-    this.updatedAt = updatedAt;
   }
 
   public Integer getAge() {

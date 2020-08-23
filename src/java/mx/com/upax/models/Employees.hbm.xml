@@ -22,11 +22,5 @@
         <property name="birthdate" type="date">
             <column name="birthdate" length="13" />
         </property>
-        <property name="createdAt" type="timestamp">
-            <column name="created_at" length="29" />
-        </property>
-        <property name="updatedAt" type="timestamp">
-            <column name="updated_at" length="29" />
-        </property>
     </class>
 </hibernate-mapping>

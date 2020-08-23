@@ -19,8 +19,6 @@ public class Jobs  implements java.io.Serializable {
   private Long id;
   private String name;
   private BigDecimal salary;
-  private Date createdAt;
-  private Date updatedAt;
   private Set employeeses = new HashSet(0);
   private Set employeeWorkedHourses = new HashSet(0);
 
@@ -61,26 +59,6 @@ public class Jobs  implements java.io.Serializable {
 
   public void setSalary(BigDecimal salary) {
     this.salary = salary;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name="created_at", length=29)
-  public Date getCreatedAt() {
-    return this.createdAt;
-  }
-
-  public void setCreatedAt(Date createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name="updated_at", nullable=false, length=29)
-  public Date getUpdatedAt() {
-    return this.updatedAt;
-  }
-
-  public void setUpdatedAt(Date updatedAt) {
-    this.updatedAt = updatedAt;
   }
 
   @OneToMany(fetch=FetchType.LAZY, mappedBy="jobs")

@@ -10,12 +10,6 @@
         <property name="name" type="string">
             <column name="name" not-null="true" />
         </property>
-        <property name="createdAt" type="timestamp">
-            <column name="created_at" length="29" />
-        </property>
-        <property name="updatedAt" type="timestamp">
-            <column name="updated_at" length="29" />
-        </property>
         <set name="employeeses" table="employees" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="gender_id" not-null="true" />

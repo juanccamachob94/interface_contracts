@@ -13,12 +13,6 @@
         <property name="salary" type="big_decimal">
             <column name="salary" precision="9" not-null="true" />
         </property>
-        <property name="createdAt" type="timestamp">
-            <column name="created_at" length="29" />
-        </property>
-        <property name="updatedAt" type="timestamp">
-            <column name="updated_at" length="29" />
-        </property>
         <set name="employeeses" table="employees" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="job_id" not-null="true" />

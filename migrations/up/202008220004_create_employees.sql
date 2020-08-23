@@ -6,8 +6,6 @@ CREATE TABLE employees(
  name VARCHAR(255) NOT NULL,
  last_name VARCHAR(255) NOT NULL,
  birthdate DATE,
- created_at timestamp without time zone DEFAULT NOW(), -- timestamp
- updated_at timestamp without time zone DEFAULT NOW(), -- timestamp
  CONSTRAINT employees_id_pkey PRIMARY KEY (id)
 );
 
@@ -22,18 +20,3 @@ ADD CONSTRAINT fk_employees_jobs FOREIGN KEY (job_id) REFERENCES jobs (id);
 
  -- init employees sequence
 ALTER SEQUENCE employees_id_seq OWNED BY employees.id;
-
--- create employees timestamp function
-CREATE OR REPLACE FUNCTION trigger_set_timestamp_on_employees()
-RETURNS TRIGGER AS $$
-BEGIN
-  NEW.updated_at = NOW();
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
--- create employees timestamp trigger
-CREATE TRIGGER set_timestamp_on_employees
-BEFORE UPDATE ON employees
-FOR EACH ROW
-EXECUTE PROCEDURE trigger_set_timestamp_on_employees();

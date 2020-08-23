@@ -17,8 +17,6 @@ import javax.persistence.TemporalType;
 public class Genders  implements java.io.Serializable {
   private Long id;
   private String name;
-  private Date createdAt;
-  private Date updatedAt;
   private Set employeeses = new HashSet(0);
 
   public Genders() {
@@ -46,26 +44,6 @@ public class Genders  implements java.io.Serializable {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name="created_at", length=29)
-  public Date getCreatedAt() {
-    return this.createdAt;
-  }
-
-  public void setCreatedAt(Date createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name="updated_at", nullable=false, length=29)
-  public Date getUpdatedAt() {
-    return this.updatedAt;
-  }
-
-  public void setUpdatedAt(Date updatedAt) {
-    this.updatedAt = updatedAt;
   }
 
   @OneToMany(fetch=FetchType.LAZY, mappedBy="genders")

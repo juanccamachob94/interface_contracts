@@ -7,10 +7,10 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="jobs" class="mx.com.upax.models.Job" fetch="select">
+        <many-to-one name="employee" class="mx.com.upax.models.Employee" fetch="select">
             <column name="employee_id" not-null="true" />
         </many-to-one>
-        <property name="workedHours" type="short">
+        <property name="workedHours" type="int">
             <column name="worked_hours" not-null="true" />
         </property>
         <property name="workedDate" type="date">

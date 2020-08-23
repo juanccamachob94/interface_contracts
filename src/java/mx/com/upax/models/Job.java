@@ -19,8 +19,7 @@ public class Job  implements java.io.Serializable {
   private Long id;
   private String name;
   private BigDecimal salary;
-  private Set employeeses = new HashSet(0);
-  private Set employeeWorkedHourses = new HashSet(0);
+  private Set employees = new HashSet(0);
 
   public Job() {
   }
@@ -62,20 +61,11 @@ public class Job  implements java.io.Serializable {
   }
 
   @OneToMany(fetch=FetchType.LAZY, mappedBy="jobs")
-  public Set getEmployeeses() {
-    return this.employeeses;
+  public Set getEmployees() {
+    return this.employees;
   }
 
-  public void setEmployeeses(Set employeeses) {
-    this.employeeses = employeeses;
-  }
-
-  @OneToMany(fetch=FetchType.LAZY, mappedBy="jobs")
-  public Set getEmployeeWorkedHourses() {
-    return this.employeeWorkedHourses;
-  }
-
-  public void setEmployeeWorkedHourses(Set employeeWorkedHourses) {
-    this.employeeWorkedHourses = employeeWorkedHourses;
+  public void setEmployees(Set employees) {
+    this.employees = employees;
   }
 }

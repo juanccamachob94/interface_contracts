@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 public class Gender  implements java.io.Serializable {
   private Long id;
   private String name;
-  private Set employeeses = new HashSet(0);
+  private Set employees = new HashSet(0);
 
   public Gender() {
   }
@@ -47,11 +47,11 @@ public class Gender  implements java.io.Serializable {
   }
 
   @OneToMany(fetch=FetchType.LAZY, mappedBy="genders")
-  public Set getEmployeeses() {
-    return this.employeeses;
+  public Set getEmployees() {
+    return this.employees;
   }
 
-  public void setEmployeeses(Set employeeses) {
-    this.employeeses = employeeses;
+  public void setEmployees(Set employees) {
+    this.employees = employees;
   }
 }

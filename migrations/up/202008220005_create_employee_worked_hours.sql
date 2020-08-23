@@ -10,7 +10,7 @@ CREATE TABLE employee_worked_hours(
 -- foreign contraint
 ALTER TABLE employee_worked_hours
 ADD CONSTRAINT fk_employee_worked_hours_employees
-FOREIGN KEY (employee_id) REFERENCES jobs (id);
+FOREIGN KEY (employee_id) REFERENCES employees (id);
 
  -- init employee_worked_hours sequence
 ALTER SEQUENCE employee_worked_hours_id_seq OWNED BY employee_worked_hours.id;

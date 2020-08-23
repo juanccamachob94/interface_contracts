@@ -19,11 +19,5 @@
             </key>
             <one-to-many class="mx.com.upax.models.Employee" />
         </set>
-        <set name="employeeWorkedHourses" table="employee_worked_hours" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="employee_id" not-null="true" />
-            </key>
-            <one-to-many class="mx.com.upax.models.EmployeeWorkedHour" />
-        </set>
     </class>
 </hibernate-mapping>

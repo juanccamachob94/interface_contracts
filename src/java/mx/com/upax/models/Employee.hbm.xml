@@ -7,10 +7,10 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="genders" class="mx.com.upax.models.Gender" fetch="select">
+        <many-to-one name="gender" class="mx.com.upax.models.Gender" fetch="select">
             <column name="gender_id" not-null="true" />
         </many-to-one>
-        <many-to-one name="jobs" class="mx.com.upax.models.Job" fetch="select">
+        <many-to-one name="job" class="mx.com.upax.models.Job" fetch="select">
             <column name="job_id" not-null="true" />
         </many-to-one>
         <property name="name" type="string">
@@ -22,5 +22,11 @@
         <property name="birthdate" type="date">
             <column name="birthdate" length="13" />
         </property>
+        <set name="employees_worked_hours" table="employees_worked_hours" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="employee_id" not-null="true" />
+            </key>
+            <one-to-many class="mx.com.upax.models.EmployeeWorkedHour" />
+        </set>
     </class>
 </hibernate-mapping>

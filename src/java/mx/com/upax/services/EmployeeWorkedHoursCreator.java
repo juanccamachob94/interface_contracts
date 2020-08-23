@@ -9,8 +9,8 @@ import mx.com.upax.db.daos.NewEmployeeWorkedHourDAO;
 public class EmployeeWorkedHoursCreator {
   private NewEmployeeWorkedHourDAO newEmployeeWorkedHourDAO;
 
-  @WebMethod(operationName = "create")
-  public String create(
+  @WebMethod(operationName = "createEmployeeWorkedHour")
+  public String createEmployeeWorkedHour(
     @WebParam(name = "employee_id") int employeeId,
     @WebParam(name = "worked_hours") int workedHours,
     @WebParam(name = "worked_date") String workedDate

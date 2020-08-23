@@ -9,8 +9,8 @@ import mx.com.upax.db.daos.NewEmployeeDAO;
 public class EmployeeCreator {
   private NewEmployeeDAO newEmployeeDAO;
 
-  @WebMethod(operationName = "create")
-  public String create(
+  @WebMethod(operationName = "createEmployee")
+  public String createEmployee(
     @WebParam(name = "gender_id") int genderId,
     @WebParam(name = "job_id") int jobId,
     @WebParam(name = "name") String name,

@@ -4,16 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import mx.com.upax.db.connections.PostgresConnection;
-import mx.com.upax.models.Employees;
+import mx.com.upax.models.Employee;
 
 public class NewEmployeeDAO {
   private static final int LEGAL_AGE = 18;
-  public Employees employee;
+  public Employee employee;
   public ArrayList<String> errors;
 
   public NewEmployeeDAO(int genderId, int jobId, String name, String lastName, String birthdate)
     throws Exception {
-    this.employee = new Employees(null, GenderDAO.getGender(genderId),
+    this.employee = new Employee(null, GenderDAO.getGender(genderId),
       JobDAO.getJob(jobId), name, lastName, sanitizedBirthDate(birthdate));
     this.errors = new ArrayList<String>();
   }

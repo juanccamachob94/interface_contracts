@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="mx.com.upax.models.Genders" table="genders" schema="public" optimistic-lock="version">
+    <class name="mx.com.upax.models.Gender" table="genders" schema="public" optimistic-lock="version">
         <id name="id" type="long">
             <column name="id" />
             <generator class="identity" />
@@ -14,7 +14,7 @@
             <key>
                 <column name="gender_id" not-null="true" />
             </key>
-            <one-to-many class="mx.com.upax.models.Employees" />
+            <one-to-many class="mx.com.upax.models.Employee" />
         </set>
     </class>
 </hibernate-mapping>

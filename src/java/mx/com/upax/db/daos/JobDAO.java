@@ -1,11 +1,11 @@
 package mx.com.upax.db.daos;
 
 import mx.com.upax.db.connections.PostgresConnection;
-import mx.com.upax.models.Jobs;
+import mx.com.upax.models.Job;
 
 public class JobDAO {
-  public static Jobs getJob(int id) throws Exception {
-    return (Jobs)PostgresConnection.connect().
-      getObject("SELECT j FROM Jobs j WHERE id = " + Integer.toString(id));
+  public static Job getJob(int id) throws Exception {
+    return (Job)PostgresConnection.connect().
+      getObject("SELECT j FROM Job j WHERE id = " + Integer.toString(id));
   }
 }

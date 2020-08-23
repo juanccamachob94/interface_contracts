@@ -7,9 +7,9 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/interface_contracts</property>
     <property name="hibernate.connection.username">interface_contracts_user</property>
     <property name="hibernate.connection.password">SW2L78L{zyV&gt;k_&gt;F</property>
-    <mapping resource="mx/com/upax/models/EmployeeWorkedHours.hbm.xml"/>
-    <mapping resource="mx/com/upax/models/Jobs.hbm.xml"/>
-    <mapping resource="mx/com/upax/models/Genders.hbm.xml"/>
-    <mapping resource="mx/com/upax/models/Employees.hbm.xml"/>
+    <mapping resource="mx/com/upax/models/EmployeeWorkedHour.hbm.xml"/>
+    <mapping resource="mx/com/upax/models/Job.hbm.xml"/>
+    <mapping resource="mx/com/upax/models/Gender.hbm.xml"/>
+    <mapping resource="mx/com/upax/models/Employee.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

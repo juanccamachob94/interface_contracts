@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="mx.com.upax.models.EmployeeWorkedHours" table="employee_worked_hours" schema="public" optimistic-lock="version">
+    <class name="mx.com.upax.models.EmployeeWorkedHour" table="employee_worked_hours" schema="public" optimistic-lock="version">
         <id name="id" type="long">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="jobs" class="mx.com.upax.models.Jobs" fetch="select">
+        <many-to-one name="jobs" class="mx.com.upax.models.Job" fetch="select">
             <column name="employee_id" not-null="true" />
         </many-to-one>
         <property name="workedHours" type="short">

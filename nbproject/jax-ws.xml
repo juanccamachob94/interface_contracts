@@ -4,6 +4,9 @@
     <service name="EmployeeCreator">
       <implementation-class>mx.com.upax.services.EmployeeCreator</implementation-class>
     </service>
+    <service name="EmployeeWorkedHoursCreator">
+      <implementation-class>mx.com.upax.services.EmployeeWorkedHoursCreator</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

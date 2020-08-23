@@ -16,8 +16,8 @@ import mx.com.upax.utilities.DateTime;
 @Table(name="employees", schema="public")
 public class Employee implements java.io.Serializable {
   private Long id;
-  private Gender genders;
-  private Job jobs;
+  private Gender gender;
+  private Job job;
   private String name;
   private String lastName;
   private Date birthdate;
@@ -25,11 +25,11 @@ public class Employee implements java.io.Serializable {
   public Employee() {
   }
 
-  public Employee(Long id, Gender genders, Job jobs, String name, String lastName,
+  public Employee(Long id, Gender gender, Job job, String name, String lastName,
     Date birthdate) {
     this.id = id;
-    this.genders = genders;
-    this.jobs = jobs;
+    this.gender = gender;
+    this.job = job;
     this.name = name;
     this.lastName = lastName;
     this.birthdate = birthdate;
@@ -47,22 +47,22 @@ public class Employee implements java.io.Serializable {
 
   @ManyToOne(fetch=FetchType.LAZY)
   @JoinColumn(name="gender_id", nullable=false)
-  public Gender getGenders() {
-    return this.genders;
+  public Gender getGender() {
+    return this.gender;
   }
 
-  public void setGenders(Gender genders) {
-    this.genders = genders;
+  public void setGender(Gender gender) {
+    this.gender = gender;
   }
 
   @ManyToOne(fetch=FetchType.LAZY)
   @JoinColumn(name="job_id", nullable=false)
-  public Job getJobs() {
-    return this.jobs;
+  public Job getJob() {
+    return this.job;
   }
 
-  public void setJobs(Job jobs) {
-    this.jobs = jobs;
+  public void setJob(Job job) {
+    this.job = job;
   }
 
 

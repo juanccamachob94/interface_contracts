@@ -44,11 +44,11 @@ public class NewEmployeeDAO {
   }
 
   private void validateGenderPresence() {
-    if(this.employee.getGenders() == null) this.errors.add("Género no encontrado");
+    if(this.employee.getGender() == null) this.errors.add("Género no encontrado");
   }
 
   private void validateJobPresence() {
-    if(this.employee.getJobs() == null) this.errors.add("Trabajo no encontrado");
+    if(this.employee.getJob() == null) this.errors.add("Trabajo no encontrado");
   }
 
   private void validateNamePresence() {

@@ -2,8 +2,8 @@
 CREATE TABLE genders(
  id bigint NOT NULL DEFAULT nextval('genders_id_seq'::regclass),
  name VARCHAR(255) NOT NULL,
- created_at timestamp without time zone NOT NULL DEFAULT NOW(), -- timestamp
- updated_at timestamp without time zone NOT NULL DEFAULT NOW(), -- timestamp
+ created_at timestamp without time zone DEFAULT NOW(), -- timestamp
+ updated_at timestamp without time zone DEFAULT NOW(), -- timestamp
  CONSTRAINT genders_id_pkey PRIMARY KEY (id)
 );
 

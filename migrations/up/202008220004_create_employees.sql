@@ -6,8 +6,8 @@ CREATE TABLE employees(
  name VARCHAR(255) NOT NULL,
  last_name VARCHAR(255) NOT NULL,
  birthdate DATE,
- created_at timestamp without time zone NOT NULL DEFAULT NOW(), -- timestamp
- updated_at timestamp without time zone NOT NULL DEFAULT NOW(), -- timestamp
+ created_at timestamp without time zone DEFAULT NOW(), -- timestamp
+ updated_at timestamp without time zone DEFAULT NOW(), -- timestamp
  CONSTRAINT employees_id_pkey PRIMARY KEY (id)
 );
 

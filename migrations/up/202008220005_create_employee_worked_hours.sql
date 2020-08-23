@@ -4,8 +4,8 @@ CREATE TABLE employee_worked_hours(
  employee_id BIGINT NOT NULL,
  WORKED_HOURS SMALLINT NOT NULL,
  WORKED_DATE DATE NOT NULL,
- created_at timestamp without time zone NOT NULL DEFAULT NOW(), -- timestamp
- updated_at timestamp without time zone NOT NULL DEFAULT NOW(), -- timestamp
+ created_at timestamp without time zone DEFAULT NOW(), -- timestamp
+ updated_at timestamp without time zone DEFAULT NOW(), -- timestamp
  CONSTRAINT employee_worked_hours_id_pkey PRIMARY KEY (id)
 );
 

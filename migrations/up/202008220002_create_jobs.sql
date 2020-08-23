@@ -3,8 +3,8 @@ CREATE TABLE jobs(
  id bigint NOT NULL DEFAULT nextval('jobs_id_seq'::regclass),
  name varchar(255) NOT NULL,
  salary NUMERIC(9,2) NOT NULL,
- created_at timestamp without time zone NOT NULL DEFAULT NOW(), -- timestamp
- updated_at timestamp without time zone NOT NULL DEFAULT NOW(), -- timestamp
+ created_at timestamp without time zone DEFAULT NOW(), -- timestamp
+ updated_at timestamp without time zone DEFAULT NOW(), -- timestamp
  CONSTRAINT jobs_id_pkey PRIMARY KEY (id)
 );
 

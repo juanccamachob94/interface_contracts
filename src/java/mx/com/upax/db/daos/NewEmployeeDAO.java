@@ -1,10 +1,9 @@
 package mx.com.upax.db.daos;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import mx.com.upax.db.connections.PostgresConnection;
 import mx.com.upax.models.Employee;
+import mx.com.upax.utilities.DateTime;
 
 public class NewEmployeeDAO {
   private static final int LEGAL_AGE = 18;
@@ -14,7 +13,7 @@ public class NewEmployeeDAO {
   public NewEmployeeDAO(int genderId, int jobId, String name, String lastName, String birthdate)
     throws Exception {
     this.employee = new Employee(null, GenderDAO.getGender(genderId),
-      JobDAO.getJob(jobId), name, lastName, sanitizedBirthDate(birthdate));
+      JobDAO.getJob(jobId), name, lastName, DateTime.sanitizedDate(birthdate));
     this.errors = new ArrayList<String>();
   }
 
@@ -31,12 +30,13 @@ public class NewEmployeeDAO {
     return message;
   }
   
-  private void validateDAO() {
+
+  protected void validateDAO() throws Exception {
     validateMandatoryAttributesPresence();
     validateLegalAge();
   }
 
-  private void validateMandatoryAttributesPresence() {
+  protected void validateMandatoryAttributesPresence() {
     validateGenderPresence();
     validateJobPresence();
     validateNamePresence();
@@ -62,13 +62,5 @@ public class NewEmployeeDAO {
   private void validateLegalAge() {
     if(this.employee.getAge() == null || this.employee.getAge() < LEGAL_AGE)
       this.errors.add("Debe ser mayor de edad");
-  }
-
-  private Date sanitizedBirthDate(String strBirthDate) {
-    try {
-      return (new SimpleDateFormat("yyyy-MM-dd")).parse(strBirthDate);
-    } catch(Exception e) {
-      return null;
-    }
   }
 }

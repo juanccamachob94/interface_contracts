@@ -103,13 +103,13 @@ public class Employee implements java.io.Serializable {
     if(this.birthdate == null) return null;
     return DateTime.getDiffYears(this.birthdate, DateTime.today());
   }
-  
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="employees")
-    public Set getEmployeeWorkedHourses() {
-        return this.employeeWorkedHourses;
-    }
-    
-    public void setEmployeeWorkedHourses(Set employeeWorkedHourses) {
-        this.employeeWorkedHourses = employeeWorkedHourses;
-    }
+
+  @OneToMany(fetch=FetchType.LAZY, mappedBy="employees")
+  public Set getEmployeeWorkedHourses() {
+    return this.employeeWorkedHourses;
+  }
+
+  public void setEmployeeWorkedHourses(Set employeeWorkedHourses) {
+    this.employeeWorkedHourses = employeeWorkedHourses;
+  }
 }

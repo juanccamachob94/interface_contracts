@@ -1,46 +1,37 @@
 package mx.com.upax.db.daos;
 
 import java.util.ArrayList;
-import mx.com.upax.db.connections.PostgresConnection;
 import mx.com.upax.models.Employee;
 import mx.com.upax.utilities.DateTime;
 
-public class NewEmployeeDAO {
+public class NewEmployeeDAO extends AbstractDAO {
   private static final int LEGAL_AGE = 18;
   public Employee employee;
-  public ArrayList<String> errors;
 
   public NewEmployeeDAO(int genderId, int jobId, String name, String lastName, String birthdate)
     throws Exception {
+    super();
     this.employee = new Employee(null, GenderDAO.getGender(genderId),
       JobDAO.getJob(jobId), name, lastName, DateTime.sanitizedDate(birthdate));
-    this.errors = new ArrayList<String>();
-  }
-
-  public boolean create() throws Exception {
-    validateDAO();
-    if(this.errors.isEmpty())
-      PostgresConnection.connect().insert(this.employee);
-    return this.errors.isEmpty();
-  }
-
-  public String errorsMessage() {
-    String message = "";
-    for (String s : this.errors) message += s + "\n";
-    return message;
   }
   
-
+  @Override
   protected void validateDAO() throws Exception {
     validateMandatoryAttributesPresence();
     validateLegalAge();
   }
 
+  @Override
   protected void validateMandatoryAttributesPresence() {
     validateGenderPresence();
     validateJobPresence();
     validateNamePresence();
     validateLastNamePresence();
+  }
+  
+  @Override
+  protected Employee mainObject() {
+    return this.employee;
   }
 
   private void validateGenderPresence() {

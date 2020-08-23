@@ -10,20 +10,17 @@ import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import mx.com.upax.db.daos.JobDAO;
 import mx.com.upax.models.Employee;
 
-/**
- *
- * @author Dreamer
- */
 @WebService(serviceName = "EmployeesByJobSearcher")
 public class EmployeesByJobSearcher {
-
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "searchEmployeesByJob")
-    public List<Employee> searchEmployeesByJob(@WebParam(name = "job_id") int jobId) {
-        return new ArrayList<Employee>();
+  @WebMethod(operationName = "searchEmployeesByJob")
+  public List<Employee> searchEmployeesByJob(@WebParam(name = "job_id") int jobId) {
+    try {
+      return JobDAO.getEmployees(jobId);
+    } catch(Exception e) {
+      return new ArrayList<Employee>();
     }
+  }
 }

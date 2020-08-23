@@ -13,7 +13,6 @@ public class JobDAO {
 
   public static List<Employee> getEmployees(int jobId) throws Exception {
     return (List<Employee>) PostgresConnection.connect().
-      getCollection("SELECT e FROM Employee e INNER JOIN Job j ON j.id = e.job.id AND j.id = " +
-        Integer.toString(jobId));
+      getCollection("SELECT e FROM Employee e WHERE e.job.id = " + Integer.toString(jobId));
   }
 }

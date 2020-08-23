@@ -4,9 +4,9 @@
 <!-- Generated 22/08/2020 05:31:19 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="mx.com.upax.models.Genders" table="genders" schema="public" optimistic-lock="version">
-        <id name="id" type="long">
+        <id name="id" type="integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="name" type="string">
             <column name="name" not-null="true" />

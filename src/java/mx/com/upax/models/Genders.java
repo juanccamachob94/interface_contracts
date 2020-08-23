@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="genders", schema="public")
 public class Genders  implements java.io.Serializable {
-  private Integer id;
+  private Long id;
   private String name;
   private Date createdAt;
   private Date updatedAt;
@@ -24,18 +24,18 @@ public class Genders  implements java.io.Serializable {
   public Genders() {
   }
 
-  public Genders(Integer id, String name) {
+  public Genders(Long id, String name) {
     this.id = id;
     this.name = name;
   }
 
   @Id
   @Column(name="id", unique=true, nullable=false)
-  public Integer getId() {
+  public Long getId() {
     return this.id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

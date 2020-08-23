@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="jobs", schema="public")
 public class Jobs  implements java.io.Serializable {
-  private Integer id;
+  private Long id;
   private String name;
   private BigDecimal salary;
   private Date createdAt;
@@ -27,7 +27,7 @@ public class Jobs  implements java.io.Serializable {
   public Jobs() {
   }
 
-  public Jobs(Integer id, String name, BigDecimal salary) {
+  public Jobs(Long id, String name, BigDecimal salary) {
     this.id = id;
     this.name = name;
     this.salary = salary;
@@ -35,11 +35,11 @@ public class Jobs  implements java.io.Serializable {
 
   @Id
   @Column(name="id", unique=true, nullable=false)
-  public Integer getId() {
+  public Long getId() {
     return this.id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

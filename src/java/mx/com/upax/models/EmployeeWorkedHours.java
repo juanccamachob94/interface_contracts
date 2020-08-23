@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="employee_worked_hours", schema="public")
 public class EmployeeWorkedHours  implements java.io.Serializable {
-  private Integer id;
+  private Long id;
   private Jobs jobs;
   private short workedHours;
   private Date workedDate;
@@ -24,7 +24,7 @@ public class EmployeeWorkedHours  implements java.io.Serializable {
   public EmployeeWorkedHours() {
   }
 
-  public EmployeeWorkedHours(Integer id, Jobs jobs, short workedHours, Date workedDate) {
+  public EmployeeWorkedHours(Long id, Jobs jobs, short workedHours, Date workedDate) {
     this.id = id;
     this.jobs = jobs;
     this.workedHours = workedHours;
@@ -33,11 +33,11 @@ public class EmployeeWorkedHours  implements java.io.Serializable {
 
   @Id
   @Column(name="id", unique=true, nullable=false)
-  public Integer getId() {
+  public Long getId() {
     return this.id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

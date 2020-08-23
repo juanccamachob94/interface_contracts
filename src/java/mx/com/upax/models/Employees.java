@@ -15,7 +15,7 @@ import mx.com.upax.utilities.DateTime;
 @Entity
 @Table(name="employees", schema="public")
 public class Employees implements java.io.Serializable {
-  private Integer id;
+  private Long id;
   private Genders genders;
   private Jobs jobs;
   private String name;
@@ -27,7 +27,7 @@ public class Employees implements java.io.Serializable {
   public Employees() {
   }
 
-  public Employees(Integer id, Genders genders, Jobs jobs, String name, String lastName,
+  public Employees(Long id, Genders genders, Jobs jobs, String name, String lastName,
     Date birthdate) {
     this.id = id;
     this.genders = genders;
@@ -39,11 +39,11 @@ public class Employees implements java.io.Serializable {
 
   @Id
   @Column(name="id", unique=true, nullable=false)
-  public Integer getId() {
+  public Long getId() {
       return this.id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

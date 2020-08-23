@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="mx.com.upax.models.Genders" table="genders" schema="public" optimistic-lock="version">
-        <id name="id" type="integer">
+        <id name="id" type="long">
             <column name="id" />
             <generator class="identity" />
         </id>

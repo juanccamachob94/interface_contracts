@@ -6,7 +6,7 @@
     <class name="mx.com.upax.models.EmployeeWorkedHours" table="employee_worked_hours" schema="public" optimistic-lock="version">
         <id name="id" type="long">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="jobs" class="mx.com.upax.models.Jobs" fetch="select">
             <column name="employee_id" not-null="true" />
@@ -18,10 +18,10 @@
             <column name="worked_date" length="13" not-null="true" />
         </property>
         <property name="createdAt" type="timestamp">
-            <column name="created_at" length="29" not-null="true" />
+            <column name="created_at" length="29" />
         </property>
         <property name="updatedAt" type="timestamp">
-            <column name="updated_at" length="29" not-null="true" />
+            <column name="updated_at" length="29" />
         </property>
     </class>
 </hibernate-mapping>

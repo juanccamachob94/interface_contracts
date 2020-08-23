@@ -42,6 +42,7 @@ public class Employees implements java.io.Serializable {
         this.jobs = jobs;
         this.name = name;
         this.lastName = lastName;
+        this.birthdate = birthdate;
     }
     
 

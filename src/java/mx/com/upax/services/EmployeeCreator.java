@@ -26,7 +26,7 @@ public class EmployeeCreator {
     }
   }
 
-  private String getResponse() {
+  private String getResponse() throws Exception {
     if(this.newEmployeeDAO.create())
       return "Empleado creado exitosamente";
     else

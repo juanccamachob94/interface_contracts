@@ -1,12 +1,15 @@
 package mx.com.upax.models;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,6 +24,7 @@ public class Employee implements java.io.Serializable {
   private String name;
   private String lastName;
   private Date birthdate;
+  private Set employeeWorkedHourses = new HashSet(0);
 
   public Employee() {
   }
@@ -99,4 +103,13 @@ public class Employee implements java.io.Serializable {
     if(this.birthdate == null) return null;
     return DateTime.getDiffYears(this.birthdate, DateTime.today());
   }
+  
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="employees")
+    public Set getEmployeeWorkedHourses() {
+        return this.employeeWorkedHourses;
+    }
+    
+    public void setEmployeeWorkedHourses(Set employeeWorkedHourses) {
+        this.employeeWorkedHourses = employeeWorkedHourses;
+    }
 }

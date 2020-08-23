@@ -1,7 +1,6 @@
 package mx.com.upax.models;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -10,9 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 @Entity
 @Table(name="jobs", schema="public")
 public class Job  implements java.io.Serializable {
@@ -20,7 +16,6 @@ public class Job  implements java.io.Serializable {
   private String name;
   private BigDecimal salary;
   private Set employeeses = new HashSet(0);
-  private Set employeeWorkedHourses = new HashSet(0);
 
   public Job() {
   }
@@ -68,14 +63,5 @@ public class Job  implements java.io.Serializable {
 
   public void setEmployeeses(Set employeeses) {
     this.employeeses = employeeses;
-  }
-
-  @OneToMany(fetch=FetchType.LAZY, mappedBy="jobs")
-  public Set getEmployeeWorkedHourses() {
-    return this.employeeWorkedHourses;
-  }
-
-  public void setEmployeeWorkedHourses(Set employeeWorkedHourses) {
-    this.employeeWorkedHourses = employeeWorkedHourses;
   }
 }

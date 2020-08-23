@@ -1,5 +1,6 @@
 package mx.com.upax.utilities;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import static java.util.Calendar.*;
@@ -25,5 +26,21 @@ public class DateTime {
 
   public static Date today() {
     return new Date();
+  }
+
+  public static Date sanitizedDate(String strDate) {
+    try {
+      return (new SimpleDateFormat("yyyy-MM-dd")).parse(strDate);
+    } catch(Exception e) {
+      return null;
+    }
+  }
+
+  public static String yyyymmddDate(Date date) {
+    try {
+      return (new SimpleDateFormat("yyyy-MM-dd")).format(date);
+    } catch(Exception e) {
+      return null;
+    }
   }
 }

@@ -15,16 +15,16 @@ import javax.persistence.TemporalType;
 @Table(name="employee_worked_hours", schema="public")
 public class EmployeeWorkedHour  implements java.io.Serializable {
   private Long id;
-  private Job jobs;
+  private Employee employee;
   private short workedHours;
   private Date workedDate;
 
   public EmployeeWorkedHour() {
   }
 
-  public EmployeeWorkedHour(Long id, Job jobs, short workedHours, Date workedDate) {
+  public EmployeeWorkedHour(Long id, Employee employee, short workedHours, Date workedDate) {
     this.id = id;
-    this.jobs = jobs;
+    this.employee = employee;
     this.workedHours = workedHours;
     this.workedDate = workedDate;
   }
@@ -41,12 +41,12 @@ public class EmployeeWorkedHour  implements java.io.Serializable {
 
   @ManyToOne(fetch=FetchType.LAZY)
   @JoinColumn(name="employee_id", nullable=false)
-  public Job getJobs() {
-    return this.jobs;
+  public Employee getEmployee() {
+    return this.employee;
   }
 
-  public void setJobs(Job jobs) {
-    this.jobs = jobs;
+  public void setEmployee(Employee employee) {
+    this.employee = employee;
   }
 
 

@@ -8,28 +8,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import mx.com.upax.utilities.DateTime;
+import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 @Table(name="employees", schema="public")
 public class Employee implements java.io.Serializable {
   private Long id;
-  private Gender genders;
-  private Job jobs;
+  private Gender gender;
+  private Job job;
   private String name;
   private String lastName;
   private Date birthdate;
+  private Set employeeWorkedHours = new HashSet(0);
 
   public Employee() {
   }
 
-  public Employee(Long id, Gender genders, Job jobs, String name, String lastName,
+  public Employee(Long id, Gender gender, Job job, String name, String lastName,
     Date birthdate) {
     this.id = id;
-    this.genders = genders;
-    this.jobs = jobs;
+    this.gender = gender;
+    this.job = job;
     this.name = name;
     this.lastName = lastName;
     this.birthdate = birthdate;
@@ -47,22 +51,22 @@ public class Employee implements java.io.Serializable {
 
   @ManyToOne(fetch=FetchType.LAZY)
   @JoinColumn(name="gender_id", nullable=false)
-  public Gender getGenders() {
-    return this.genders;
+  public Gender getGender() {
+    return this.gender;
   }
 
-  public void setGenders(Gender genders) {
-    this.genders = genders;
+  public void setGender(Gender gender) {
+    this.gender = gender;
   }
 
   @ManyToOne(fetch=FetchType.LAZY)
   @JoinColumn(name="job_id", nullable=false)
-  public Job getJobs() {
-    return this.jobs;
+  public Job getJob() {
+    return this.job;
   }
 
-  public void setJobs(Job jobs) {
-    this.jobs = jobs;
+  public void setJob(Job job) {
+    this.job = job;
   }
 
 
@@ -98,5 +102,14 @@ public class Employee implements java.io.Serializable {
   public Integer getAge() {
     if(this.birthdate == null) return null;
     return DateTime.getDiffYears(this.birthdate, DateTime.today());
+  }
+
+  @OneToMany(fetch=FetchType.LAZY, mappedBy="employees")
+  public Set getEmployeeWorkedHours() {
+    return this.employeeWorkedHours;
+  }
+
+  public void setEmployeeWorkedHours(Set employeeWorkedHours) {
+    this.employeeWorkedHours = employeeWorkedHours;
   }
 }

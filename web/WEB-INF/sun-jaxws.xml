@@ -2,4 +2,5 @@
 <endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
   <endpoint implementation="mx.com.upax.services.EmployeeCreator" name="EmployeeCreator" url-pattern="/EmployeeCreator"/>
   <endpoint implementation="mx.com.upax.services.EmployeeWorkedHoursCreator" name="EmployeeWorkedHoursCreator" url-pattern="/EmployeeWorkedHoursCreator"/>
+  <endpoint implementation="mx.com.upax.services.EmployeesByJobSearcher" name="EmployeesByJobSearcher" url-pattern="/EmployeesByJobSearcher"/>
 </endpoints>

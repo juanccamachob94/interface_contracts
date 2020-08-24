@@ -1,13 +1,12 @@
 package mx.com.upax.db.daos;
 
-import java.util.Date;
 import mx.com.upax.utilities.DateTime;
 import mx.com.upax.db.connections.PostgresConnection;
 
 public class WorkedHoursDAO extends AbstractDAO {
-  private int employeeId;
-  private String strStartDate;
-  private String strEndDate;
+  protected int employeeId;
+  protected String strStartDate;
+  protected String strEndDate;
 
   public WorkedHoursDAO(int employeeId, String startDate, String endDate) throws Exception {
     super();

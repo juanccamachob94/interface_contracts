@@ -23,6 +23,11 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>EmployeePaymentsByDatesSearcher</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmployeeCreator</servlet-name>
         <url-pattern>/EmployeeCreator</url-pattern>
@@ -38,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>EmployeeWorkedHoursByDatesSearcher</servlet-name>
         <url-pattern>/EmployeeWorkedHoursByDatesSearcher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeePaymentsByDatesSearcher</servlet-name>
+        <url-pattern>/EmployeePaymentsByDatesSearcher</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>-1</session-timeout>

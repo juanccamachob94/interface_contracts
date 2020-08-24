@@ -15,7 +15,7 @@ public class HibernateUtil {
       mongoLogger.setLevel(Level.SEVERE);
       sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
     } catch (Throwable e) {
-      System.err.println("NewHibernateUtil : {Ha fallado la instancia de la SessionFactory " + e + "}");
+      System.err.println("HibernateUtil : {Ha fallado la instancia de la SessionFactory " + e + "}");
       throw new ExceptionInInitializerError(e);
     }
   }

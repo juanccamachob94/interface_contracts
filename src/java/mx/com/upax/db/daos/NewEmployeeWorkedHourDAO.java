@@ -16,8 +16,8 @@ public class NewEmployeeWorkedHourDAO extends AbstractDAO {
   }
 
   @Override
-  protected void validateDAO() throws Exception {
-    super.validateDAO();
+  public void validate() throws Exception {
+    super.validate();
     validateWorkedHours();
     validateWorkedDate();
   }

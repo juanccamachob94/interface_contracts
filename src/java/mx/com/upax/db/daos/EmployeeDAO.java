@@ -5,7 +5,7 @@ import mx.com.upax.models.Employee;
 
 public class EmployeeDAO {
   public static Employee getEmployee(int id) throws Exception {
-    return (Employee)PostgresConnection.connect().
+    return (Employee) PostgresConnection.connect().
       getObject("SELECT g FROM Employee g WHERE id = " + Integer.toString(id));
   }
 }

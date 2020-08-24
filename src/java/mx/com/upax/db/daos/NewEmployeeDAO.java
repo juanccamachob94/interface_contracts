@@ -14,10 +14,10 @@ public class NewEmployeeDAO extends AbstractDAO {
     this.employee = new Employee(null, GenderDAO.getGender(genderId),
       JobDAO.getJob(jobId), name, lastName, DateTime.sanitizedDate(birthdate));
   }
-  
+
   @Override
-  protected void validateDAO() throws Exception {
-    super.validateDAO();
+  public void validate() throws Exception {
+    super.validate();
     validateLegalAge();
   }
 
@@ -28,7 +28,7 @@ public class NewEmployeeDAO extends AbstractDAO {
     validateNamePresence();
     validateLastNamePresence();
   }
-  
+
   @Override
   protected Employee mainObject() {
     return this.employee;

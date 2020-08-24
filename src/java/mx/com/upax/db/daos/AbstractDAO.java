@@ -17,12 +17,12 @@ public class AbstractDAO {
   }
 
   public boolean create() throws Exception {
-    validateDAO();
+    validate();
     if(this.errors.isEmpty()) PostgresConnection.connect().insert(mainObject());
     return this.errors.isEmpty();
   }
 
-  protected void validateDAO() throws Exception {
+  public void validate() throws Exception {
     validateMandatoryAttributesPresence();
   }
 

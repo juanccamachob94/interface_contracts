@@ -3,4 +3,5 @@
   <endpoint implementation="mx.com.upax.services.EmployeeCreator" name="EmployeeCreator" url-pattern="/EmployeeCreator"/>
   <endpoint implementation="mx.com.upax.services.EmployeeWorkedHoursCreator" name="EmployeeWorkedHoursCreator" url-pattern="/EmployeeWorkedHoursCreator"/>
   <endpoint implementation="mx.com.upax.services.EmployeesByJobSearcher" name="EmployeesByJobSearcher" url-pattern="/EmployeesByJobSearcher"/>
+  <endpoint implementation="mx.com.upax.services.EmployeeWorkedHoursByDatesSearcher" name="EmployeeWorkedHoursByDatesSearcher" url-pattern="/EmployeeWorkedHoursByDatesSearcher"/>
 </endpoints>

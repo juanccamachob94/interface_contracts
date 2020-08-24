@@ -10,6 +10,9 @@
     <service name="EmployeesByJobSearcher">
       <implementation-class>mx.com.upax.services.EmployeesByJobSearcher</implementation-class>
     </service>
+    <service name="EmployeeWorkedHoursByDatesSearcher">
+      <implementation-class>mx.com.upax.services.EmployeeWorkedHoursByDatesSearcher</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>

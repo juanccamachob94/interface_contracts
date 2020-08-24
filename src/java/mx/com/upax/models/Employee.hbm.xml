@@ -22,7 +22,7 @@
         <property name="birthdate" type="date">
             <column name="birthdate" length="13" />
         </property>
-        <set name="employeeWorkedHourses" table="employee_worked_hours" inverse="true" lazy="false" fetch="select">
+        <set name="employeeWorkedHourses" table="employee_worked_hours" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="employee_id" not-null="true" />
             </key>

@@ -1,8 +1,8 @@
 # interface_contracts
 
-Los 5 ejercicios solicitados se realizan en Java JDK 8, Hibernate y Postgres 9.3.
+Los 5 ejercicios solicitados se realizan en Java JDK 8, NetBeans 8.0.2, Hibernate 4.3 y Postgres 9.3.
 
-The 5 exercises requested are performed on Java JDK 8, Hibernate  and Postgres 9.3.
+The 5 exercises requested are performed on Java JDK 8, NetBeans 8.0.2, Hibernate 4.3 and Postgres 9.3.
 
 
 ## Puntos principales a considerar

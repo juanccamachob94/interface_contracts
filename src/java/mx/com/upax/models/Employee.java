@@ -24,7 +24,7 @@ public class Employee implements java.io.Serializable {
   private String name;
   private String lastName;
   private Date birthdate;
-  private Set employeeWorkedHourses = new HashSet(0);
+  private Set<EmployeeWorkedHour> employeeWorkedHourses = new HashSet<EmployeeWorkedHour>(0);
 
   public Employee() {
   }
@@ -104,12 +104,12 @@ public class Employee implements java.io.Serializable {
     return DateTime.getDiffYears(this.birthdate, DateTime.today());
   }
 
-  @OneToMany(fetch=FetchType.LAZY, mappedBy="employees")
-  public Set getEmployeeWorkedHourses() {
+  @OneToMany(fetch=FetchType.EAGER, mappedBy="employees")
+  public Set<EmployeeWorkedHour> getEmployeeWorkedHourses() {
     return this.employeeWorkedHourses;
   }
 
-  public void setEmployeeWorkedHourses(Set employeeWorkedHourses) {
+  public void setEmployeeWorkedHourses(Set<EmployeeWorkedHour> employeeWorkedHourses) {
     this.employeeWorkedHourses = employeeWorkedHourses;
   }
 }

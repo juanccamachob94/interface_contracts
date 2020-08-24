@@ -6,23 +6,22 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
 public class NewHibernateUtil {
+  private static final SessionFactory sessionFactory;
 
-    private static final SessionFactory sessionFactory;
-
-    static {
-      try {
-          Logger mongoLogger = Logger.getLogger("org.hibernate");
-          mongoLogger.setLevel(Level.SEVERE);
-          sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-      } catch (Throwable e) {
-          System.err.println(
-            "NewHibernateUtil : { Ha fallado la instancia de la SessionFactory " + e + " }"
-          );
-          throw new ExceptionInInitializerError(e);
-      }
+  static {
+    try {
+      Logger mongoLogger = Logger.getLogger("org.hibernate");
+      mongoLogger.setLevel(Level.SEVERE);
+      sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+    } catch (Throwable e) {
+      System.err.println(
+        "NewHibernateUtil : { Ha fallado la instancia de la SessionFactory " + e + " }"
+      );
+      throw new ExceptionInInitializerError(e);
     }
+  }
 
-    public static SessionFactory getSessionFactory() {
-      return sessionFactory;
-    }
+  public static SessionFactory getSessionFactory() {
+    return sessionFactory;
+  }
 }

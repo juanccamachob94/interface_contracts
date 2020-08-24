@@ -1,6 +1,5 @@
 package mx.com.upax.utilities;
 
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.hibernate.cfg.AnnotationConfiguration;

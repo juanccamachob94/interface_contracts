@@ -12,7 +12,10 @@ public class JobDAO {
   }
 
   public static List<Employee> getEmployees(int jobId) throws Exception {
-    return (List<Employee>) PostgresConnection.connect().
+    PostgresConnection.connect().startsTransaction();
+    List<Employee> employees = (List<Employee>) PostgresConnection.connect().
       getCollection("SELECT e FROM Employee e WHERE e.job.id = " + Integer.toString(jobId));
+    PostgresConnection.connect().endsTransaction();
+    return employees;
   }
 }
